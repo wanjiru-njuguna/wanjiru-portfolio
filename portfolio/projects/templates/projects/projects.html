@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+{% load static %}
+{% block title %}
+<head>
+    <p>Projects</p>
+</head>
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'projects/projects.css' %}">
+{% endblock %}
+{% block content %}
+<div class="project-container">
+    {% for project in projects_done %}
+        <div class="project-card">
+            <h2>Project: {{project.title}}</h2>
+            <p>{{project.description}}</p>
+            <p>Year: {{project.year}}</p>
+            <p>Client: {{project.client}}</p>
+            <p>
+                <a href="{{project.project_link}}" target="_blank" rel="noopener noreferrer">Click to view</a>    
+            </p>
+            <p>Technologies Used:</p>
+            <p>{{project.technologies}}</p>
+
+        </div>  
+    {% endfor %}    
+
+</div>
+    
+
+{% endblock %}

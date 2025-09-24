@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 
+    {{ homecontent.title }}
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if homecontent.video %}
+        <div class="background-video">
+            <video autoplay muted loop playsinline>
+                <source src="{{ homecontent.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    {% endif %}
+    <div class="homediv">
+        <h1>{{ homecontent.title }}</h1>
+
+        <p>{{ homecontent.bio }}</p>
+      
+        <a href="{% url 'projects' %}">See my projects <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="{% url 'about' %}">Learn more about me <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} 
+    
+    {{ about_items.title }}
+
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'about/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="abouttitle">{{ about_items.title }}</h1>
+
+    <div class="aboutdiv">
+        <div class="aboutcontent">
+            <p>{{ about_items.description }}</p>
+            <a href="{{ about_items.resume.url }}"target="_blank" rel="noopener noreferrer">Download my resume →</a>   
+        </div>
+        <img src="{{ about_items.photo.url }}" alt="My Photo" width="400" class="headshot">
+
+    </div>
+    
+{% endblock %}

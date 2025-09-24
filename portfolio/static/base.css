@@ -1,0 +1,124 @@
+body
+{
+    margin: 0;
+    padding-top: 2em;
+    background-color: rgb(83, 77, 77);
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+html, body {
+    height: 100%;         
+    margin: 0;            
+    display: flex;
+    flex-direction: column;
+  }
+.navbar{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.478);
+    display: flex;
+    gap: 4em;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;                
+    z-index: 1000; 
+    /* padding: 4em,4em; */
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    line-height: 3em;
+    margin-right: 2em;
+}
+.navbar a:hover {
+  text-decoration: underline;
+  color: #ddd;
+}
+
+
+.footer {
+    background: #222;      
+    color: white;
+    padding: 1em;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,.15);
+  }
+
+  
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: white;
+}
+/* This makes the page responsive and shows the humberger icon instead of the links side by side
+when the screen size reduces to a certain point. */
+@media screen and (max-width: 48em)
+{
+    .navbar 
+    {
+        display: none;
+        position: static;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em 0;
+        background: #8b8a8a;   
+    }
+    .navbar.show 
+    {
+        display: flex;
+    }
+    .hamburger
+    {
+        display: block;
+        font-size: 1.75em;
+        cursor: pointer;
+        color: white;
+        user-select: none;
+        margin-left: auto;
+    }
+/* This makes sure that the items on the header do not overlap with the body content when the 
+size of the screen is reduced. */
+    /* header { position: sticky; }      
+    body { padding-top: 0; }  */
+}
+
+.container
+{
+    flex: 1;
+    max-width: 70rem;             
+    margin: 2rem auto;            
+    padding: 0 1rem;
+}
+
+/* .box {
+    background: #a01e1e;          
+    border: 1px solid rgba(194, 40, 40, 0.15);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(198, 195, 195, 0.2);
+  } */
+
+  /* chnaging anchor tags from the default blue color into a different color taht is visible againts gray background
+   */
+
+   a {
+     color: chartreuse;
+   }
+
+   h1
+   {
+    margin-bottom: 1em;
+   }
