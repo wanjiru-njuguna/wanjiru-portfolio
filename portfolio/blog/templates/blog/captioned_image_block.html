@@ -1,0 +1,14 @@
+{% load wagtailimages_tags %}
+
+<figure>
+    {% image self.image fill-600x338 loading="lazy" %}
+    <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
+</figure>
+<!-- <figure class="post-figure">
+    {% image self.image width-1600 class="post-image" loading="lazy"
+       srcset="width-480 480w, width-800 800w, width-1200 1200w, width-1600 1600w"
+       sizes="(max-width: 48em) 100vw, 70rem" %}
+    {% if self.caption or self.attribution %}
+      <figcaption>{{ self.caption }}{% if self.attribution %} — {{ self.attribution }}{% endif %}</figcaption>
+    {% endif %}
+</figure> -->

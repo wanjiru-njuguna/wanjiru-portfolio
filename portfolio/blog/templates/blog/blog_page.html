@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date }}</p>
+    {% with authors=page.authors.all %}
+        {% if authors %}
+            <ul>
+                {% for author in authors %}
+                    <p> 
+                       By {{ author.name }}
+                    </p>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="intro">{{ page.intro }}</div>
+
+    {{ page.body }}
+    {% for item in page.gallery_images.all %}
+        <div style="float: inline-start; margin: 10px">
+            {% image item.image fill-320x240 %}
+            <p>{{ item.caption }}</p>
+        </div>
+    {% endfor %}
+    {% with tags=page.tags.all %}
+        {% if tags %}
+            <div class="tags">
+                <h3>Tags</h3>
+                {% for tag in tags %}
+                    <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <h3>Leave a Comment</h3>
+    <p>Your email address will not be published. Required fields are marked *</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div>{{ form.comment.label_tag }}<br>{{ form.comment }}</div>
+        <div>{{ form.name.label_tag }}<br>{{ form.name }}</div>
+        <div>{{ form.email.label_tag }}<br>{{ form.email }}</div>
+        <div>{{ form.website.label_tag }}<br>{{ form.website }}</div>
+
+        <div>
+            <label>
+            <input type="checkbox" id="remember" />
+            Save my name, email, and website in this browser for the next time I comment.
+            </label>
+        </div>
+
+        <button type="submit">Submit Comment</button>
+    </form>
+
+    <hr>
+
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        <div class="comment">
+            <p><strong>{{ comment.name }}</strong> — {{ comment.created_at|date:"M d, Y" }}</p>
+            <p>{{ comment.comment }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet. Be the first to comment!</p>
+    {% endfor %}
+
+    
+    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    
+
+{% endblock %}

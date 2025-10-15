@@ -1,0 +1,109 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-weight: bold;
+  }
+
+  .pagination a {
+    text-decoration: none;
+    background: #555;
+    padding: 0.4em 0.8em;
+    border-radius: 0.3em;
+    transition: background 0.3s;
+  }
+  
+  .pagination a:hover {
+    background: #777;
+  }
+
+  /* styling for the code block */
+  .block-code_block pre.code-block,
+  .block-code_block pre[class*="language-"] {
+  background: #e4dede !important;
+  color: #222 !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0,0,0,.1) !important;
+  overflow: auto !important;
+  line-height: 1.5 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+}
+.block-code_block pre.code-block > code,
+.block-code_block pre[class*="language-"] > code,
+.block-code_block code[class*="language-"] {
+  background: transparent !important; /* so pre’s grey shows through */
+  color: inherit !important;
+}
+
+  pre[class*="language-"], code[class*="language-"] {
+    background-color: #c0bbbb !important;  
+    color: #222 !important;
+  }
+
+  pre[class*="language-"] {
+    padding: 1rem !important;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0,0,0,.1);
+    overflow: auto;
+    line-height: 1.5;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  form textarea, form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+  }
+  
+  form button {
+    background: chartreuse;
+    color: #000;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background: #bada55;
+  }
+  
+  .comment {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+  }
+body
+{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    
+}  
+
+a {
+    text-decoration: none;
+    
+}
+
+.blog-summary {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .blog-summary h2 { margin-top: 0; }
+  .blog-summary .intro-text { color: #ddd; margin-bottom: 1rem; }
+  .blog-summary .read-more { color: chartreuse; font-weight: 700; text-decoration: none; }
+  .blog-summary .read-more:hover { text-decoration: underline; }
+  .thumb { width: 100%; border-radius: .5rem; margin-bottom: 1rem; }
+  

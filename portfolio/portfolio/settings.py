@@ -41,7 +41,23 @@ INSTALLED_APPS = [
     'home',
     'about',
     'contact',
-    'projects'
+    'projects',
+    'blog',
+    #wagtail apps
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # wagtail middleware
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -132,3 +150,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# shows the maximum number of fields allowed in a form submission.
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
+
+# Displayed on the main dashboard of the Wagtail admin backend
+
+WAGTAIL_SITE_NAME = 'Wanjiru portfolio site'
+
+# used for generating URLs to include in notification emails:
+
+WAGTAILADMIN_BASE_URL = 'http://thisperfectmess.net'
+
+# document types allowed to be uploaded by users.
+WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'txt', 'xlsx', 'zip']

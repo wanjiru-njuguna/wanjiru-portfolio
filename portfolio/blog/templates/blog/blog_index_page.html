@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+   
+<div class="index-body">
+    <div class="intro">{{ page.intro|richtext }}</div>
+    <div class="post-content">
+        {% for post in blogpages %}
+            {% with post=post.specific %}
+                <article class="blog-summary">
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                    {% with post.main_image as main_image %}
+                      {% if main_image %}{% image main_image fill-400x250 class="thumb" %}{% endif %}
+                    {% endwith %}
+                    <p class="intro-text">{{ post.summary }}</p>
+                    <p><a class="read-more" href="{% pageurl post %}">Read more →</a></p>
+                  </article>
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+    
+    <div class="pagination">
+        {% if blogpages.has_previous %}
+          <a href="?page={{ blogpages.previous_page_number }}">← Previous</a>
+        {% endif %}
+    
+        <span>Page {{ blogpages.number }} of {{ blogpages.paginator.num_pages }}</span>
+    
+        {% if blogpages.has_next %}
+          <a href="?page={{ blogpages.next_page_number }}">Next →</a>
+        {% endif %}
+      </div>
+</div>
+      <script>
+        //function to open the links in a new tab.
+        (function () {
+          function forceBlank(scope) {
+            (scope || document).querySelectorAll('.post-content a[href]').forEach(a => {
+              a.setAttribute('target', '_blank');
+              a.setAttribute('rel', 'noopener noreferrer');
+            });
+          }
+          // run on load
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => forceBlank(document));
+          } else {
+            forceBlank(document);
+          }
+        })();
+      </script>
+      
+{% endblock %}

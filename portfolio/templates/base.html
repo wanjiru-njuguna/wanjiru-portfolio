@@ -1,14 +1,23 @@
 {% load static %}
+{% load wagtailcore_tags %}
 
 <!DOCTYPE html>
 <html>
     <head>
         <title>{% block title %} Portfolio{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'base.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css">
         <script src="https://kit.fontawesome.com/c0de917e91.js" crossorigin="anonymous"></script>     
         {% block extra_css %}{% endblock %}
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+
         <header>
             {% block header %}
                 <div class="navbar" id="navLinks">
@@ -16,6 +25,10 @@
                     <a href="{% url 'about' %}">About</a>
                     <a href="{% url 'contact' %}">Contact</a>
                     <a href="{% url 'projects' %}">Projects</a>
+                    <a href="{% slugurl 'blog' %}">Blog</a>
+
+
+
                 </div>
                 <button class="hamburger" id="hamburger" aria-expanded="false"          aria-controls="navLinks" aria-label="Toggle menu">
                     <i class="fa-solid fa-bars" aria-hidden="true"></i>
@@ -28,10 +41,10 @@
             {% block content %}
 
             {% endblock %}
-            <script src="{% static 'base.js' %}"></script>
 
         </main>
         <footer class="footer">© 2025 Wanjiru Njuguna</footer>
+        <script src="{% static 'base.js' %}"></script>
 
     </body>
 </html>
