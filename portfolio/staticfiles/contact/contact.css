@@ -1,0 +1,20 @@
+
+.contact-title {
+    border-bottom: 3px solid white;
+    font-stretch: wider;
+    text-align: left;
+    margin: 2em;
+   
+
+
+}
+.main-contact
+{
+    display: flex;
+   
+}
+
+.main-contact p 
+{
+    margin: 2em;
+}
